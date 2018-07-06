@@ -4,10 +4,12 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const teamRoutes = require("./routes/teams");
 const playerRoutes = require("./routes/players");
+const skillRoutes = require("./routes/skills");
 
 app.use(bodyParser.json());
 app.use(morgan("dev"));
 
+app.use("/skills", skillRoutes);
 app.use("/teams", teamRoutes);
 app.use("/teams/:team_id/players", playerRoutes);
 
